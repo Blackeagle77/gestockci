@@ -1,0 +1,27 @@
+/* ===== GeStockCI Admin — même famille visuelle, densité "console de pilotage" ===== */
+@import url('../../app/css/style.css');
+
+body{background:var(--ink);}
+.admin-coquille{display:flex;min-height:100vh;}
+.admin-lateral{
+  width:220px;flex:none;background:var(--ink);color:#fff;
+  padding:24px 16px;display:flex;flex-direction:column;gap:6px;
+}
+.admin-lateral .logo{font-family:var(--font-display);font-weight:800;font-size:1.2rem;margin-bottom:18px;color:#fff;}
+.admin-lateral a{
+  color:#B7BEDB;text-decoration:none;padding:11px 12px;border-radius:var(--radius-s);
+  font-weight:600;font-size:.92rem;
+}
+.admin-lateral a.actif, .admin-lateral a:hover{background:rgba(255,255,255,.08);color:#fff;}
+.admin-contenu{flex:1;background:var(--base);padding:32px;min-width:0;}
+.admin-entete{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;}
+.admin-entete h1{margin:0;font-size:1.5rem;}
+.tableau{width:100%;border-collapse:collapse;background:var(--surface);border-radius:var(--radius-m);overflow:hidden;box-shadow:var(--shadow);}
+.tableau th, .tableau td{padding:12px 14px;text-align:left;font-size:.9rem;border-bottom:1px solid var(--line);}
+.tableau th{color:var(--ink-soft);font-weight:700;background:#FBFAF6;}
+.tableau tr:last-child td{border-bottom:none;}
+@media (max-width:760px){
+  .admin-coquille{flex-direction:column;}
+  .admin-lateral{width:100%;flex-direction:row;overflow-x:auto;}
+  .admin-contenu{padding:18px;}
+}

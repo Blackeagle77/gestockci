@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GeStockCI Admin — Utilisateurs</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="admin-coquille" id="coquille">
+    <div class="admin-contenu">
+      <div class="admin-entete">
+        <h1>Utilisateurs</h1>
+        <button class="btn btn-principal" id="btn-nouveau" style="width:auto;padding:12px 20px;">＋ Nouvel utilisateur</button>
+      </div>
+      <table class="tableau">
+        <thead><tr><th>Boutique</th><th>Nom</th><th>Email</th><th>Téléphone</th><th>Abonnement</th><th>Statut</th></tr></thead>
+        <tbody id="corps-tableau"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-functions-compat.js"></script>
+  <script src="../app/js/config.js"></script>
+  <script src="js/admin.js"></script>
+  <script>
+    // Réutilise le helper "feuille" (bottom sheet) de l'app utilisateur
+    function ouvrirFeuille(html){
+      const overlay=document.createElement("div");
+      overlay.className="overlay";
+      overlay.innerHTML=`<div class="feuille">${html}</div>`;
+      overlay.addEventListener("click",(e)=>{if(e.target===overlay)overlay.remove();});
+      document.body.appendChild(overlay);
+      return overlay;
+    }
+  </script>
+  <script src="admin-users.js"></script>
+</body>
+</html>
