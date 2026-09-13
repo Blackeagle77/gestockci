@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GeStockCI — Tableau de bord</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#16213E">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ecran">
+    <div class="entete">
+      <div>
+        <h1><span data-i18n="dashboard_titre">Bonjour</span>, <span id="prenom-utilisateur"></span> 👋</h1>
+        <p class="sous-titre" id="nom-boutique"></p>
+      </div>
+      <button class="selecteur-langue" id="btn-langue">FR/EN</button>
+    </div>
+
+    <div class="grille-kpi">
+      <div class="kpi recolte">
+        <div class="libelle" data-i18n="kpi_ca_jour">Ventes du jour</div>
+        <div class="chiffre" id="kpi-ca">—</div>
+      </div>
+      <div class="kpi recolte">
+        <div class="libelle" data-i18n="kpi_benefice">Bénéfice estimé</div>
+        <div class="chiffre" id="kpi-benefice">—</div>
+      </div>
+      <div class="kpi or">
+        <div class="libelle" data-i18n="kpi_dettes">Dettes clients</div>
+        <div class="chiffre" id="kpi-dettes">—</div>
+      </div>
+      <div class="kpi alerte">
+        <div class="libelle" data-i18n="kpi_ruptures">Produits en rupture</div>
+        <div class="chiffre" id="kpi-ruptures">—</div>
+      </div>
+    </div>
+
+    <div class="carte">
+      <h3 data-i18n="dashboard_ventes_semaine" style="margin-top:0;">Ventes des 7 derniers jours</h3>
+      <div id="mini-graphe" style="display:flex;align-items:flex-end;gap:8px;height:120px;"></div>
+    </div>
+
+    <div id="liste-ruptures"></div>
+
+    <button class="btn btn-discret" id="btn-deconnexion" data-i18n="deconnexion">Déconnexion</button>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+  <script src="config.js"></script>
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "GeStockCI",
+  "short_name": "GeStockCI",
+  "description": "Gestion de stock, caisse et crédits clients pour boutiques et marchands",
+  "start_url": "./login.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#16213E",
+  "theme_color": "#16213E",
+  "orientation": "portrait",
+  "lang": "fr",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

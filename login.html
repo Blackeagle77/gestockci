@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GeStockCI — Connexion</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#16213E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body{background:var(--ink);}
+  .ecran-connexion{
+    min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+    max-width:420px;margin:0 auto;padding:32px 24px;gap:22px;
+  }
+  .logo{
+    width:64px;height:64px;border-radius:18px;background:var(--braise);
+    display:flex;align-items:center;justify-content:center;font-size:1.8rem;
+    margin-bottom:6px;
+  }
+  .ecran-connexion h1{color:#fff;font-size:1.7rem;margin:0;}
+  .ecran-connexion .sous-titre{color:#B7BEDB;margin-top:4px;}
+  .carte-connexion{background:var(--surface);border-radius:var(--radius-l);padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px;}
+  .connexion-erreur{color:var(--alerte);font-size:.88rem;display:none;}
+  .aide{color:#B7BEDB;font-size:.85rem;text-align:center;}
+  .langue-flottante{align-self:flex-end;}
+</style>
+</head>
+<body>
+  <div class="ecran-connexion">
+    <button class="btn selecteur-langue langue-flottante" id="btn-langue">FR / EN</button>
+    <div>
+      <div class="logo">🛍️</div>
+      <h1 data-i18n="app_nom">GeStockCI</h1>
+      <p class="sous-titre" data-i18n="connexion_soustitre">Gérez votre boutique en toute simplicité</p>
+    </div>
+    <form class="carte-connexion" id="form-connexion">
+      <div class="champ">
+        <label data-i18n="champ_email">Adresse email</label>
+        <input type="email" id="email" required autocomplete="username">
+      </div>
+      <div class="champ">
+        <label data-i18n="champ_mdp">Mot de passe</label>
+        <input type="password" id="mdp" required autocomplete="current-password">
+      </div>
+      <p class="connexion-erreur" id="erreur" data-i18n="connexion_erreur"></p>
+      <button type="submit" class="btn btn-principal" data-i18n="btn_connexion">Se connecter</button>
+    </form>
+    <p class="aide" data-i18n="connexion_aide">Compte oublié ? Contactez votre administrateur GeStockCI.</p>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+  <script src="config.js"></script>
+  <script src="i18n.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

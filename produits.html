@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GeStockCI — Stock</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#16213E">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ecran">
+    <div class="entete">
+      <h1 data-i18n="produits_titre">Mes produits</h1>
+      <button class="btn btn-principal" id="btn-ajouter" style="width:auto;padding:12px 18px;">＋</button>
+    </div>
+    <div id="liste-produits"></div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+  <script src="config.js"></script>
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+  <script src="produits.js"></script>
+</body>
+</html>

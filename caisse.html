@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GeStockCI — Caisse</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#16213E">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ecran">
+    <div class="entete"><h1 data-i18n="caisse_titre">Nouvelle vente</h1></div>
+
+    <div id="grille-produits" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;"></div>
+
+    <div class="carte">
+      <h3 style="margin-top:0;" data-i18n="caisse_panier">Panier</h3>
+      <div id="lignes-panier"></div>
+      <div style="display:flex;justify-content:space-between;font-family:var(--font-display);font-weight:700;font-size:1.15rem;margin-top:10px;border-top:1px solid var(--line);padding-top:10px;">
+        <span data-i18n="caisse_total">Total</span><span id="total-panier">0 FCFA</span>
+      </div>
+    </div>
+
+    <button class="btn btn-principal" id="btn-valider" data-i18n="caisse_valider">Valider la vente</button>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+  <script src="config.js"></script>
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+  <script src="caisse.js"></script>
+</body>
+</html>
