@@ -1,0 +1,242 @@
+/* ===== GeStockCI — Design system app utilisateur =====
+   Inspiré des marchés et boutiques ivoiriennes : indigo profond (confiance,
+   nuit tombée sur le marché), orange braise (énergie du commerce, CFA),
+   vert récolte (stock, croissance), sable chaud (fond neutre lisible).
+   Typo : Sora (titres, gros chiffres) + IBM Plex Sans (texte courant,
+   excellent support des accents français). */
+
+:root{
+  --ink:        #16213E;   /* texte principal / fond sombre admin */
+  --ink-soft:   #4A5578;   /* texte secondaire */
+  --base:       #F7F5F0;   /* fond général, sable clair */
+  --surface:    #FFFFFF;   /* cartes */
+  --line:       #E4E1D6;   /* séparateurs */
+  --braise:     #E8562A;   /* accent principal — actions, CTA */
+  --braise-dark:#C6431C;
+  --recolte:    #147A5B;   /* succès, stock, croissance */
+  --recolte-bg: #E4F3EC;
+  --alerte:     #D6272A;   /* rupture, dette, danger */
+  --alerte-bg:  #FBE6E6;
+  --or:         #E8A22C;   /* attention, crédit en cours */
+  --or-bg:      #FBF0DA;
+
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --radius-l: 22px;
+  --shadow: 0 8px 24px rgba(22,33,62,0.08);
+
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--base);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.5;
+  -webkit-tap-highlight-color:transparent;
+}
+h1,h2,h3,.chiffre{font-family:var(--font-display);}
+a{color:inherit;}
+button{font-family:inherit;}
+
+/* Squelette d'écran mobile-first, contenu large sous nav basse */
+.ecran{
+  max-width:520px;
+  margin:0 auto;
+  min-height:100vh;
+  padding:20px 18px 96px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.entete{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.entete h1{font-size:1.35rem;margin:0;font-weight:700;}
+.entete .sous-titre{color:var(--ink-soft);font-size:.9rem;margin-top:2px;}
+
+/* Bouton principal — grand, difficile à manquer */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border:none;
+  border-radius:var(--radius-m);
+  padding:16px 20px;
+  font-size:1.05rem;
+  font-weight:700;
+  font-family:var(--font-display);
+  cursor:pointer;
+  transition:transform .12s ease, box-shadow .12s ease;
+  width:100%;
+}
+.btn:active{transform:scale(.97);}
+.btn-principal{background:var(--braise);color:#fff;box-shadow:0 6px 18px rgba(232,86,42,.35);}
+.btn-principal:hover{background:var(--braise-dark);}
+.btn-neutre{background:var(--surface);color:var(--ink);border:1.5px solid var(--line);}
+.btn-discret{background:transparent;color:var(--ink-soft);font-weight:600;padding:10px;}
+
+.champ{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.champ label{font-size:.85rem;font-weight:600;color:var(--ink-soft);}
+.champ input, .champ select{
+  border:1.5px solid var(--line);
+  border-radius:var(--radius-s);
+  padding:14px 14px;
+  font-size:1.05rem;
+  font-family:var(--font-body);
+  background:var(--surface);
+  color:var(--ink);
+}
+.champ input:focus, .champ select:focus{
+  outline:none;
+  border-color:var(--braise);
+  box-shadow:0 0 0 3px rgba(232,86,42,.15);
+}
+
+.carte{
+  background:var(--surface);
+  border-radius:var(--radius-l);
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+
+/* Cartes KPI du tableau de bord */
+.grille-kpi{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.kpi{
+  background:var(--surface);
+  border-radius:var(--radius-m);
+  padding:16px;
+  box-shadow:var(--shadow);
+}
+.kpi .libelle{font-size:.82rem;color:var(--ink-soft);font-weight:600;}
+.kpi .chiffre{font-size:1.5rem;font-weight:700;margin-top:4px;}
+.kpi.alerte .chiffre{color:var(--alerte);}
+.kpi.recolte .chiffre{color:var(--recolte);}
+.kpi.or .chiffre{color:var(--or);}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  border-radius:999px;
+  padding:4px 10px;
+  font-size:.78rem;
+  font-weight:700;
+}
+.badge-alerte{background:var(--alerte-bg);color:var(--alerte);}
+.badge-recolte{background:var(--recolte-bg);color:var(--recolte);}
+.badge-or{background:var(--or-bg);color:var(--or);}
+
+/* Liste produit / client en grosse vignette tactile */
+.vignette{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  background:var(--surface);
+  border-radius:var(--radius-m);
+  padding:14px;
+  box-shadow:var(--shadow);
+  cursor:pointer;
+  border:none;
+  width:100%;
+  text-align:left;
+}
+.vignette .icone{
+  width:52px;height:52px;flex:none;
+  border-radius:var(--radius-s);
+  background:var(--recolte-bg);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;
+}
+.vignette .infos{flex:1;min-width:0;}
+.vignette .nom{font-weight:700;}
+.vignette .detail{color:var(--ink-soft);font-size:.85rem;}
+.vignette .valeur{font-family:var(--font-display);font-weight:700;white-space:nowrap;}
+
+/* Navigation basse, 4 icônes max, gros repères visuels */
+.nav-basse{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  background:var(--surface);
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-around;
+  padding:8px 6px calc(8px + env(safe-area-inset-bottom));
+  z-index:40;
+}
+.nav-basse a{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:3px;
+  font-size:.72rem;
+  font-weight:600;
+  color:var(--ink-soft);
+  text-decoration:none;
+  padding:6px 10px;
+  border-radius:var(--radius-s);
+}
+.nav-basse a.actif{color:var(--braise);background:var(--or-bg);}
+.nav-basse .pastille{font-size:1.35rem;line-height:1;}
+
+.entete-app{
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:520px;margin:0 auto;padding:16px 18px 0;
+}
+.selecteur-langue{
+  border:1.5px solid var(--line);
+  border-radius:999px;
+  padding:6px 12px;
+  font-size:.8rem;
+  font-weight:700;
+  background:var(--surface);
+}
+
+.vide{
+  text-align:center;
+  color:var(--ink-soft);
+  padding:36px 16px;
+}
+.vide .pastille{font-size:2.2rem;display:block;margin-bottom:8px;}
+
+.overlay{
+  position:fixed;inset:0;background:rgba(22,33,62,.45);
+  display:flex;align-items:flex-end;justify-content:center;z-index:60;
+}
+.feuille{
+  background:var(--surface);
+  width:100%;max-width:520px;
+  border-radius:22px 22px 0 0;
+  padding:22px 18px calc(22px + env(safe-area-inset-bottom));
+  display:flex;flex-direction:column;gap:14px;
+  max-height:88vh;overflow-y:auto;
+}
+.feuille-entete{display:flex;align-items:center;justify-content:space-between;}
+.fermer{background:none;border:none;font-size:1.4rem;color:var(--ink-soft);cursor:pointer;}
+
+.toast{
+  position:fixed;left:50%;bottom:90px;transform:translateX(-50%);
+  background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;
+  font-size:.9rem;font-weight:600;z-index:80;box-shadow:var(--shadow);
+}
+
+@media (min-width:640px){
+  .grille-kpi{grid-template-columns:repeat(4,1fr);}
+}
